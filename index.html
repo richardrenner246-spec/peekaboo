@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Recovery Lab — Wallet-Passwort-Rekonstruktion</title>
+  <meta name="description" content="Psychologisch basierte Rekonstruktion vergessener Krypto-Wallet-Passwörter durch state-dependent memory retrieval. Kein technischer Zugriff. Keine Software." />
+  <style>
+    :root {
+      --bg:        #0a0a0a;
+      --surface:   #111111;
+      --border:    #1e1e1e;
+      --gold:      #c9a84c;
+      --gold-dim:  #8a6f2e;
+      --text:      #e8e4dc;
+      --muted:     #7a7570;
+      --radius:    4px;
+      --max:       780px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 100px 0; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 400;
+    }
+
+    nav a {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 180px;
+      padding-bottom: 120px;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 52px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .hero-disclaimer {
+      margin-top: 48px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      border-left: 2px solid var(--border);
+      padding-left: 16px;
+      max-width: 480px;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    h2 {
+      font-size: clamp(22px, 3.5vw, 34px);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    p { margin-bottom: 18px; color: var(--muted); }
+    p strong { color: var(--text); font-weight: normal; }
+
+    /* ── PROBLEM ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin-top: 52px;
+    }
+
+    .card {
+      background: var(--surface);
+      padding: 36px 28px;
+    }
+
+    .card-num {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--gold-dim);
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    /* ── SCIENCE ── */
+    #science {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quote-block {
+      border-left: 3px solid var(--gold);
+      padding: 24px 28px;
+      margin: 40px 0;
+      background: rgba(201,168,76,0.04);
+    }
+
+    .quote-block p {
+      font-size: 19px;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .quote-block cite {
+      display: block;
+      margin-top: 12px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    /* ── PROCESS ── */
+    .steps {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 24px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:first-child { border-top: 1px solid var(--border); }
+
+    .step-num {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--gold-dim);
+      padding-top: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .step h3 {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .step p {
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .step-tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      border: 1px solid var(--gold-dim);
+      padding: 3px 8px;
+    }
+
+    /* ── FIT ── */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin-top: 52px;
+    }
+
+    .fit-col {
+      background: var(--surface);
+      padding: 40px 32px;
+    }
+
+    .fit-col h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .fit-col.yes h3 { color: var(--gold); }
+    .fit-col.no h3  { color: var(--muted); }
+
+    .fit-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .fit-col li {
+      font-size: 15px;
+      color: var(--muted);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .fit-col.yes li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .fit-col.no li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      color: #4a4a4a;
+    }
+
+    /* ── TRUST ── */
+    #trust {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin-top: 52px;
+    }
+
+    .trust-item {
+      background: var(--surface);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .trust-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+      filter: grayscale(0.3);
+    }
+
+    .trust-item h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .trust-item p {
+      font-size: 13px;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── CONTACT ── */
+    #contact .container { max-width: 560px; }
+
+    form {
+      margin-top: 52px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    input, textarea, select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      padding: 14px 16px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--gold-dim);
+    }
+
+    textarea { min-height: 140px; resize: vertical; }
+
+    select option { background: #1a1a1a; }
+
+    .form-note {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .btn-submit {
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      section { padding: 72px 0; }
+
+      #hero { padding-top: 140px; padding-bottom: 80px; }
+
+      .fit-grid { grid-template-columns: 1fr; }
+
+      .step { grid-template-columns: 44px 1fr; gap: 16px; }
+
+      nav .inner { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <span class="logo">Memory Recovery Lab</span>
+    <a href="#contact">Kontakt aufnehmen</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <p class="eyebrow">Psychologische Erinnerungsarbeit · Krypto-Wallet-Rekonstruktion</p>
+    <h1>Du hast dein Wallet nicht vergessen — dein Gehirn hat nur <em>den Kontext verloren.</em></h1>
+    <p class="hero-sub">
+      Vergessene Wallet-Passwörter entstehen selten durch Gedächtnisschwäche. Meistens sind sie an einen emotionalen Zustand, eine Lebensphase oder einen physischen Ort gebunden — und lassen sich durch gezielte psychologische Rekonstruktion wieder zugänglich machen.
+    </p>
+    <a href="#contact" class="btn">Erstgespräch anfragen</a>
+    <p class="hero-disclaimer">
+      Kein technischer Zugriff auf dein Wallet. Keine Software. Keine Seed-Phrase-Eingabe.
+      Ausschließlich kognitiv-psychologische Methodik.
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <span class="section-label">Das Problem</span>
+    <h2>Warum Passwörter nach Lebensbrüchen verschwinden</h2>
+    <p>
+      Das menschliche Gedächtnis ist kein Archiv. Es ist ein <strong>kontextabhängiges Netzwerk</strong> — Erinnerungen sind verknüpft mit dem emotionalen und situativen Zustand, in dem sie entstanden sind. Wenn sich dieser Zustand fundamental ändert, werden Zugangswege blockiert, nicht gelöscht.
+    </p>
+    <p>
+      Besonders häufige Auslöser dieser Blockadenbildung:
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <p class="card-num">01</p>
+        <h3>Umzug & Neustart</h3>
+        <p>Ein Passwort, das in der alten Wohnung, dem alten Leben gewählt wurde, ist mit diesem Kontext verknüpft — nicht abrufbar aus dem neuen.</p>
+      </div>
+      <div class="card">
+        <p class="card-num">02</p>
+        <h3>Emotionale Zäsuren</h3>
+        <p>Trennung, Verlust, Burnout — das Gehirn reorganisiert sich. Zugangswege zu vor der Zäsur liegenden Memories verengen sich.</p>
+      </div>
+      <div class="card">
+        <p class="card-num">03</p>
+        <h3>Zeitlicher Abstand</h3>
+        <p>Bei seltener Nutzung baut das Gehirn aktive Verbindungen ab. Die Information ist noch vorhanden — der Weg dorthin wurde deprioritisiert.</p>
+      </div>
+      <div class="card">
+        <p class="card-num">04</p>
+        <h3>Stress & Abruf-Hemmung</h3>
+        <p>Der Versuch, ein Passwort unter Druck abzurufen, aktiviert das limbische System — was den präfrontalen Abruf aktiv hemmt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SCIENCE -->
+<section id="science">
+  <div class="container">
+    <span class="section-label">Die Wissenschaft</span>
+    <h2>State-Dependent Memory — kurz erklärt</h2>
+    <p>
+      Das Konzept des <strong>zustandsabhängigen Gedächtnisses</strong> (state-dependent memory retrieval) ist seit den 1970er Jahren gut erforscht. Die Kernthese: Erinnerungen werden am effektivsten abgerufen, wenn der interne Zustand beim Abruf dem Zustand bei der Enkodierung ähnelt.
+    </p>
+
+    <div class="quote-block">
+      <p>„Informationen, die in einem bestimmten physiologischen oder emotionalen Zustand gelernt wurden, werden am besten in demselben Zustand abgerufen."</p>
+      <cite>Godden & Baddeley, 1975 · Eich et al., 1994 · Klassische Befunde der Gedächtnispsychologie</cite>
+    </div>
+
+    <p>
+      Was das für vergessene Passwörter bedeutet: Es geht nicht darum, sich <em>anzustrengen</em>. Es geht darum, den <strong>richtigen internen und externen Kontext</strong> zu rekonstruieren — emotionalen Zustand, körperliche Haltung, mentale Rahmung, assoziierte Lebensumstände — und dann in einem entspannten, nicht-erzwungenen Zustand den Abruf zu ermöglichen.
+    </p>
+    <p>
+      Unsere Sitzungen kombinieren Elemente aus kognitiver Verhaltenstherapie, hypnagogem Entspannungstraining und strukturierter mnemonischer Rekonstruktion. Kein Hokuspokus — angewandte Kognitionspsychologie.
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROCESS -->
+<section id="prozess">
+  <div class="container">
+    <span class="section-label">Der Prozess</span>
+    <h2>Vier Phasen — strukturiert, diskret, respektvoll</h2>
+    <p>
+      Wir arbeiten ausschließlich mit einer begrenzten Anzahl von Klienten gleichzeitig. Jeder Fall wird individuell vorbereitet.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div>
+          <h3>Screening</h3>
+          <p>
+            Anonymes Erstkontaktgespräch (30 Min., verschlüsselt). Wir prüfen gemeinsam, ob ein psychologischer Ansatz realistisch Erfolg verspricht: Wie lange ist das Passwort her? Gibt es kontextuelle Anker? Was ist bekannt über die Erstellungssituation? Kein Versprechen — aber eine ehrliche Einschätzung.
+          </p>
+          <span class="step-tag">Kostenlos · Anonym</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">02</span>
+        <div>
+          <h3>Intake & Mapping</h3>
+          <p>
+            Detaillierte Rekonstruktion der Lebensumstände zum Zeitpunkt der Passwort-Erstellung. Wir kartieren emotionale Zustände, räumliche Kontexte, Gewohnheiten und mentale Muster — ohne Zugriff auf technische Systeme oder Seed-Phrasen.
+          </p>
+          <span class="step-tag">2–3 Stunden · Remote oder vor Ort</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">03</span>
+        <div>
+          <h3>Rekonstruktionssitzungen</h3>
+          <p>
+            3 bis 6 strukturierte Sitzungen à 60–90 Minuten. Kombination aus geführter Entspannung, kontextueller Reimagination und mnemonischer Technik. Sitzungen werden protokolliert — der Klient behält alle Notizen, wir erhalten keine Kopien mit sensitiven Inhalten.
+          </p>
+          <span class="step-tag">Wöchentlich · Vollständig vertraulich</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step-num">04</span>
+        <div>
+          <h3>Verifikation</h3>
+          <p>
+            Der Klient verifiziert eigenständig — wir sind bei diesem Schritt nicht anwesend und erhalten keinerlei Information darüber, ob und was abgerufen wurde. Unser Engagement endet mit der letzten Sitzung.
+          </p>
+          <span class="step-tag">Allein · Ohne unsere Beteiligung</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FIT -->
+<section id="geeignet">
+  <div class="container">
+    <span class="section-label">Passt das zu dir?</span>
+    <h2>Geeignet — und nicht geeignet</h2>
+    <p>
+      Ehrlichkeit ist Teil unseres Ansatzes. Nicht jeder Fall eignet sich für psychologische Rekonstruktion.
+    </p>
+
+    <div class="fit-grid">
+      <div class="fit-col yes">
+        <h3>Geeignet</h3>
+        <ul>
+          <li>Passwort selbst erstellt und genutzt — Erinnerung unklar, nicht völlig absent</li>
+          <li>Lebensbruch zwischen Erstellung und aktuellem Moment (Umzug, Trennung, Jobwechsel)</li>
+          <li>Passwort-Erstellung liegt 1–8 Jahre zurück</li>
+          <li>Keine physische Hirnverletzung oder neurologische Erkrankung</li>
+          <li>Bereitschaft zu mehreren Sitzungen und echtem Prozessengagement</li>
+          <li>Signifikanter Gegenwert im Wallet (rechtfertigt Aufwand)</li>
+        </ul>
+      </div>
+      <div class="fit-col no">
+        <h3>Nicht geeignet</h3>
+        <ul>
+          <li>Passwort wurde nie bekannt — reine Brute-Force-Anfragen</li>
+          <li>Wallet gehört einer anderen Person</li>
+          <li>Erwartung an Sofortlösung ohne Prozessbereitschaft</li>
+          <li>Passwort-Erstellung liegt mehr als 15 Jahre zurück ohne jegliche Anker</li>
+          <li>Wunsch nach technischem Zugriff oder Software-Lösungen</li>
+          <li>Akute psychische Krise — dann bitte zuerst professionelle therapeutische Hilfe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="container">
+    <span class="section-label">Vertrauensanker</span>
+    <h2>Was wir nicht tun — und warum das wichtig ist</h2>
+    <p>
+      Der Markt für "Wallet-Recovery" ist durchsetzt mit Betrug. Wir möchten explizit abgrenzen, was unsere Arbeit <em>nicht</em> ist.
+    </p>
+
+    <div class="trust-grid">
+      <div class="trust-item">
+        <span class="trust-icon">🔒</span>
+        <h3>Kein technischer Zugriff</h3>
+        <p>Wir erhalten zu keinem Zeitpunkt Zugang zu deinem Gerät, deiner Wallet-Software oder deinem privaten Schlüssel.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🚫</span>
+        <h3>Keine Software</h3>
+        <p>Kein Tool, kein Plugin, keine Chrome-Extension, keine Remote-Desktop-Sitzung. Nichts wird installiert.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🔐</span>
+        <h3>Keine Seed-Phrasen</h3>
+        <p>Wir fragen niemals nach Seed-Phrasen, Recovery-Keys oder privaten Schlüsseln. Niemals.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">📄</span>
+        <h3>Klare Vertragsbasis</h3>
+        <p>Honorar auf Stundenbasis, kein Erfolgsanteil am Wallet-Inhalt, keine versteckten Forderungen.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🕵️</span>
+        <h3>Anonymität möglich</h3>
+        <p>Erstkontakt und Sitzungen können vollständig pseudonym geführt werden. Kein Realname erforderlich.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">📋</span>
+        <h3>Keine Erfolgsgarantie</h3>
+        <p>Wir versprechen nichts, was wir nicht halten können. Psychologische Arbeit hat keine Garantie — das ist seriös, nicht schwach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label">Kontakt</span>
+    <h2>Anonymes Erstgespräch anfragen</h2>
+    <p>
+      Kein Realname erforderlich. Keine sensitiven Informationen in dieser Anfrage — die kommen, wenn überhaupt, erst in einem verschlüsselten Folgeschritt. Wir melden uns innerhalb von 48 Stunden.
+    </p>
+
+    <form name="kontakt" action="#" method="post">
+      <div class="field">
+        <label for="alias">Pseudonym / Alias (optional)</label>
+        <input type="text" id="alias" name="alias" placeholder="z. B. User_7742" autocomplete="off" />
+      </div>
+
+      <div class="field">
+        <label for="kontaktweg">Bevorzugter Kontaktweg</label>
+        <select id="kontaktweg" name="kontaktweg">
+          <option value="">Bitte wählen …</option>
+          <option value="email">E-Mail (Ende-zu-Ende verschlüsselt möglich)</option>
+          <option value="signal">Signal</option>
+          <option value="session">Session Messenger</option>
+          <option value="protonmail">ProtonMail</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="kontaktadresse">Kontaktadresse</label>
+        <input type="text" id="kontaktadresse" name="kontaktadresse" placeholder="E-Mail, Signal-Nummer oder Session-ID" autocomplete="off" />
+      </div>
+
+      <div class="field">
+        <label for="zeitraum">Ungefährer Zeitraum der Passwort-Erstellung</label>
+        <select id="zeitraum" name="zeitraum">
+          <option value="">Bitte wählen …</option>
+          <option value="1-2">Vor 1–2 Jahren</option>
+          <option value="3-5">Vor 3–5 Jahren</option>
+          <option value="6-8">Vor 6–8 Jahren</option>
+          <option value="9-12">Vor 9–12 Jahren</option>
+          <option value="13+">Mehr als 12 Jahre</option>
+          <option value="unknown">Weiß ich nicht genau</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="kontext">Kurzer Kontext (keine sensitiven Details)</label>
+        <textarea id="kontext" name="kontext" placeholder="Was weißt du noch über die Situation, in der du das Passwort erstellt hast? Keine Passwort-Fragmente, keine Seed-Phrasen — nur Lebenskontext."></textarea>
+      </div>
+
+      <p class="form-note">
+        Dieses Formular sendet keine Daten an Drittanbieter. Keine Tracker. Keine Analytics. Deine Eingaben werden ausschließlich für die Bearbeitung deiner Anfrage verwendet und danach gelöscht.
+      </p>
+
+      <button type="submit" class="btn-submit">Anfrage absenden</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 Memory Recovery Lab &nbsp;·&nbsp; Kognitive Rekonstruktionsarbeit &nbsp;·&nbsp; <a href="#">Datenschutz</a> &nbsp;·&nbsp; <a href="#">Impressum</a></p>
+  <p style="margin-top:8px; font-size:11px; opacity:0.5;">Keine Rechts- oder Finanzberatung. Keine Erfolgsgarantie. Psychologische Dienstleistung auf Honorarbasis.</p>
+</footer>
+
+</body>
+</html>
