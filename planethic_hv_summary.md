@@ -1,7 +1,9 @@
 # Planethic Group AG — HV-Summary 20. Oktober 2026
-**Erstellt aus:** HV-Transkript (vollständig, ~74 KB) + öffentliche Quellen  
+**Erstellt aus:** HV-Transkript (vollständig, ~74 KB) + 20 Slide-Fotos (HV-Präsentation) + öffentliche Quellen  
 **Deine Position:** ~€45.000 Darlehen (Anleihe/Wandeldarlehen) + ~15.000 Aktien  
-**Datum:** 20.10.2026 — heute
+**Datum:** 20.10.2026 — heute  
+**Insolvenz-Aktenzeichen:** 650 IN 179/26, AG Potsdam  
+**Sachwalter:** Prof. Dr. Torsten Martini, GÖRG Rechtsanwälte
 
 ---
 
@@ -15,93 +17,127 @@ Die Gesellschaft ist **insolvent in Eigenverwaltung** (seit 25. August 2026, AG 
 
 | Position | Rechtsstellung | Status |
 |---|---|---|
-| **Darlehen ~€45k** | Insolvenzgläubiger (Anleihe oder Wandeldarlehen) | Vor Aktionären — angemeldete Forderungen gesamt **€19,1 Mio.**, deckbar durch €30 Mio. Orbifarm-Forderung → **bis zu 100 % Befriedigung möglich** |
+| **Darlehen ~€45k** | Insolvenzgläubiger — Darlehen-Gruppe | Gesamte Darlehensforderungen: **€2,2 Mio.** laut Slide. Gesamte Insolvenzforderungen: **€19,1 Mio.** (Anleihe 9,6 + Lieferanten 6,0 + Darlehen 2,2 + Sonstige 1,3). Deckbar durch €30 Mio. Orbifarm-Forderung → **bis zu 100 % Befriedigung möglich** |
 | **~15.000 Aktien** | Nachrangig hinter allen Insolvenzgläubigern | Wert hängt komplett vom Erfolg des Insolvenzplans und der Orbifarm-Zahlung ab — **Totalverlust möglich** |
 
-**Fazit für dich:** Das Darlehen ist strukturell besser gestellt als die Aktien. Wenn der Insolvenzplan klappt, kriegst du als Gläubiger vermutlich das Geld zurück. Die Aktien sind hochspekulativ.
+**Fazit für dich:** Dein Darlehen fällt in die Gruppe der Darlehensgläubiger (€2,2 Mio. gesamt). Da die Gesamtforderungen €19,1 Mio. betragen und die Orbifarm-Forderung €30 Mio. beträgt, ist als Gläubiger eine vollständige Befriedigung rechnerisch möglich — wenn Orbifarm zahlt.
 
 ---
 
 ## Chancen — was heute positiv klang
 
-### 1. Orbifarm-Forderung ist das Rückgrat
+### 1. Orbifarm-Forderung ist das Rückgrat (mit echter Sicherheit)
 Jan Bredack (Gründer, Hauptaktionär, gleichzeitig Käufer der Orbifarm) hat heute **erstmals öffentlich bestätigt**, dass:
 - Verträge mit Kunden **bereits geschlossen und gerade ratifiziert** werden
 - Die Technologie **im Industriesetup operationalisiert** ist (Maschinen, Mitarbeiter, Patente)
 - Er **„wild entschlossen"** ist, in den nächsten Wochen/Monaten öffentliche Erfolgsmeldungen zu machen
 - Er bereits **>2 Mio. € eigenes Geld** in Orbifarm investiert hat (inkl. €500k/Jahr Fraunhofer-Lizenzgebühren)
-- Er sich **verpflichtet hat**, schon jetzt Teile des Kaufpreises vorzeitig zur Verfahrensfinanzierung zu zahlen — das ist ein echter Vertrauensanker
+- Er sich **verpflichtet hat**, schon jetzt Teile des Kaufpreises vorzeitig zur Verfahrensfinanzierung zu zahlen
 
-→ **Bedeutung:** Bredack hat mehr eigenes Skin-in-the-Game als je zuvor. Er hängt in der Haftung, er zahlt bereits, und er sitzt als Aufsichtsrat in der Gesellschaft. Incentive-Alignment ist da.
+**Neu aus den Slides (IMG_3290):** Planethic hält ein **Pfandrecht an den OrbiFarm-Anteilen** und darf Verfügungen über die Anteile nur mit ihrer Zustimmung. Das ist eine echte rechtliche Sicherheit, die im Transkript nicht explizit war. Zudem: 25 % Gewinnbeteiligung + 25 % Erlöse aus möglichem Börsengang der OrbiFarm.
+
+→ **Bedeutung:** Bredack hat mehr eigenes Skin-in-the-Game als je zuvor. Das Pfandrecht ist ein konkreter Hebel, falls er nicht zahlt.
 
 ### 2. Eigenverwaltung läuft stabil
-- Sachwalter Prof. Dr. Martini eingesetzt, Gläubigerausschuss aktiv
-- Antrag der SDK (Schutzgemeinschaft der Kapitalanleger) auf **Aufhebung der Eigenverwaltung am 14.10. gescheitert** — die erforderliche Mehrheit wurde verfehlt
+- Sachwalter Prof. Dr. Martini (GÖRG) eingesetzt, Gläubigerausschuss aktiv
+- Antrag der SDK (Schutzgemeinschaft der Kapitalanleger) auf **Aufhebung der Eigenverwaltung am 14.10. gescheitert**
 - **SdK selbst hat auf der HV bestätigt**, die Eigenverwaltung zu unterstützen (Kunert: „die einzige Chance für Aktionäre")
-- Sachwalter hat Forderungsverzeichnis geprüft und Bericht ans Gericht abgegeben
+- **Verfahrensfinanzierung gesichert**: Vogt + Bredack + **1,0 Mio. EUR aus Verkauf von Mililk-Anteilen** (mit Sachwalter vereinbart, Slide IMG_3289)
 
-### 3. Mililk — neuer Blueprint, B2B-Fokus
+### 3. Mililk — neuer Blueprint, B2B-Fokus + internationale Expansion
 - Neue, deutlich **kostengünstigere Produktionstechnik** mit fast vollständiger Automatisierung entwickelt
-- Strategischer Schwenk: **weg von Einzelhandel, hin zu B2B-Großabnehmern** (Mensen, Großküchen, Industriekunden)
-- Peace on Earth (vegane Fleischalternativen) als eigenständige Tochter ausgegründet
-- Kooperationen im B2B-Bereich für H1 2027 produktionsbereit
-- Chicago-Werk für US-Kunden (Jindilli, 60 Mio. Liter-Vereinbarung): **Standort, Maschinen, Zulieferer fixiert** — Timing mit Kunden wird gerade abgestimmt
+- Strategischer Schwenk: **weg von Einzelhandel, hin zu B2B-Großabnehmern**
+- **Neu aus Slides (IMG_3293):** Für 2027 geplant: **Joint Venture Nordafrika** + **Werk in Deutschland** + Suche nach **neuen Mililk-Investoren**
+- **Mililk North-America Inc.** besteht mit 79 % Beteiligung (Minderheit existiert)
+- Chicago-Werk für US-Kunden (Jindilli): Standort, Maschinen, Zulieferer fixiert
 
 ### 4. Kosten radikal gesenkt
 - Personal: 70 MA Ende 2025 → **8 MA Ende 2026** (–89 %)
 - Zielkosten Holding: **€85.000/Monat** alles inklusive
-- Schlankere AG-Struktur mit Töchtern als operative Einheiten
+- **check-direkt.de GmbH** (100 % Tochter): Erzielte 2025 ein **positives Ergebnis** — bisher nicht kommuniziert, kleiner aber echter Cashflow-Beitrag
 
 ### 5. Aktionärsrechte bleiben erhalten
 - Hauptversammlung, Kapitalmaßnahmen, Feststellungen: **liegt weiter bei der HV**
-- Wandelschuldverschreibungs-Ermächtigung wurde von €50 Mio. auf **€1,16 Mio.** reduziert → weniger Verwässerungsrisiko für Aktionäre
+- Wandelschuldverschreibungs-Ermächtigung wurde auf **€1,16 Mio.** reduziert → weniger Verwässerungsrisiko
 
 ---
 
 ## Risiken — was heute besorgniserregend war
 
 ### R1 — Orbifarm-Forderung bleibt das größte Fragezeichen 🔴
-Genau das, was SdK-Vertreter Kunert ausführlich adressiert hat:
 - **Kaufpreis erst fällig 31.12.2028** — bis dahin ist alles theoretisch
-- Bredak Vermögensverwaltung GmbH hat **€30.000 Stammkapital** bei €30 Mio. Kaufpreis — klassischer Mismatch
-- Wenn Orbifarm-Technologie am Markt scheitert oder Bredack zahlungsunfähig wird: die Forderung ist wertlos
-- Wirtschaftsprüfer verweigerte Bestätigungsvermerk **genau wegen der Unsicherheit der Liquiditätsprognose** für die nächsten 2 Jahre (nicht wegen der Forderung selbst, aber das ist Haarspalterei)
+- **Fußnote auf Slide IMG_3290 explizit:** "Der Kaufpreis bildet den Wert ab, den OrbiFarm in den nächsten zwei bis drei Jahren erreichen soll." D.h. der Kaufpreis ist ein Forward-Looking-Wert — OrbiFarm ist heute noch nicht 30 Mio. EUR wert
+- Bredak Vermögensverwaltung GmbH hat **€30.000 Stammkapital** bei €30 Mio. Kaufpreis
+- Wenn Orbifarm-Technologie am Markt scheitert: die Forderung ist wertlos
+- Wirtschaftsprüfer verweigerte Bestätigungsvermerk wegen Unsicherheit der Liquiditätsprognose
 
-### R2 — Qualitätsprobleme US-Lieferung — gravierend 🔴
-Heute zum ersten Mal offen kommuniziert:
-- Lieferungen an US-Kunden (Jindilli) aus Ludwigsfelde führten zu **„kapitalen und katastrophalen Managementfehlentscheidungen"** — nicht-verkehrsfähiges Material wurde versandt
-- Dies hat die Kundenbeziehung massiv beschädigt (**„massive Störungen"**)
-- Vorangegangene Vorstandsmitglieder wurden deshalb abberufen (Anja Brachmüller)
-- Der Chicago-Produktionsstart ist damit verzögert
+### R2 — Liquidität der AG: nahe null 🔴
+**Neu aus Slide IMG_3275 (Bilanz 2025):** Liquide Mittel zum 31.12.2025: **nur 24.000 EUR**. Die gesamte Bilanzsumme (61,7 Mio.) hängt zu 58 % an der OrbiFarm-Kaufpreisforderung. Ohne laufende Vorfinanzierung durch Vogt/Bredack/Mililk-Anteileverkauf wäre das Verfahren nicht finanzierbar.
+
+### R3 — Qualitätsprobleme US-Lieferung — gravierend 🔴
+- Lieferungen an US-Kunden (Jindilli) aus Ludwigsfelde: **„kapitale und katastrophale Managementfehlentscheidungen"** — nicht-verkehrsfähiges Material wurde versandt
+- Kundenbeziehung massiv beschädigt, **„massive Störungen"**
+- Vorangegangene Vorstandsmitglieder deshalb abberufen (Anja Brachmüller)
+- Chicago-Produktionsstart verzögert
 - 60-Mio.-Dollar-Vereinbarung steht unter Druck
+→ **Bedeutung:** Erstmals offen kommuniziert. Die frühere Story „Produktion läuft" war falsch.
 
-→ **Bedeutung:** Das ist neu und ernst. Die bisher kommunizierte Story „Produktion läuft" war falsch.
-
-### R3 — Kein beschlussfähiger Aufsichtsrat nach heute 🟡
+### R4 — Kein beschlussfähiger Aufsichtsrat nach heute 🟡
 - Kures, Bredak (die Person), Durach legen Mandate zum Tagesende nieder
-- Neue Kandidaten sind zwar gefunden, konnten aber **nicht mehr rechtzeitig zur Wahl gestellt** werden
+- Neue Kandidaten können **nicht mehr rechtzeitig zur Wahl gestellt** werden
 - Einziger Weg: **gerichtliche Bestellung** durch das Registergericht
-- Bis dahin: Aufsichtsrat nicht beschlussfähig — in einer Insolvenz eine fragile Situation
+- In einer Insolvenz ohne AR eine fragile Situation
 
-### R4 — Insolvenzplan noch nicht eingereicht 🟡
-- Zeitplan für Einreichung des Insolvenzplans: **noch offen** (kein konkretes Datum)
-- Eröterungs- und Abstimmungstermin: ebenfalls noch nicht terminiert
-- Aufhebung des Verfahrens: Ziel **H1 2027** — ambitioniert
-- Jede Verzögerung erhöht die laufenden Kosten des Verfahrens
+### R5 — Insolvenzplan noch nicht eingereicht 🟡
+- Zeitplan für Einreichung: **noch offen**
+- Ziel Aufhebung des Verfahrens: **H1 2027** — ambitioniert
+- Jede Verzögerung erhöht laufende Kosten
 
-### R5 — Veganz-Bestandsgeschäft stirbt 🟡
+### R6 — Veganz-Bestandsgeschäft stirbt 🟡
 - Happy Cheese: eingestellt
 - Orbifarm: verkauft
-- Veganz Food Factory: **seit April 2026 im Kursverfahren** (eigene Tochter-Insolvenz)
-- Veganz-Handelsprodukte werden in neue Tochter ausgelagert (Status unklar)
-- Onlineshop derzeit inaktiv
-- Von früher 70+ Mitarbeitern in Richtung 8 — kein operatives Geschäft in der Holding mehr
+- Veganz Food Factory Austria: **seit April 2026 im Kursverfahren**
+- Umsatz 2025 nur noch **€4,2 Mio.** (Vorjahr 10,8 Mio.)
+- Von früher 70+ MA → 8 MA Ende 2026
 
-### R6 — Transparenzdefizit historisch belastet Vertrauen 🟡
-SdK und du als Aktionär haben heute zu Recht kritisiert:
-- Keine klare Kommunikation zur Fälligkeit des Orbifarm-Kaufpreises in Raten vs. Einmalbetrag
-- Fehlgeleitete Kommunikation zu Anleihe-Rückkauf im August letzten Jahres
-- Managementwechsel wurden als „persönliche Gründe" verharmlost, waren aber operative Katastrophen
+### R7 — Transparenzdefizit historisch belastet Vertrauen 🟡
+- Keine klare Kommunikation zu Zahlungsmodalitäten Orbifarm-Kaufpreis
+- Managementwechsel als „persönliche Gründe" verharmlost, waren operative Katastrophen
+- **Slide IMG_3283 bestätigt:** Insolvenz wurde nötig, weil Anleihegläubiger wegen mangelnden Quorums schlicht nicht abstimmen konnten — nicht aus strategischem Versagen allein
+
+---
+
+## Finanzkennzahlen aus Slides (Neu)
+
+### GuV 2025 (Tsd. EUR)
+| Position | 2025 | 2024 |
+|---|---|---|
+| Umsatzerlöse | 4.227 | 10.800 |
+| Sonstige betr. Erträge (inkl. OrbiFarm) | 30.996 | 7.505 |
+| Materialaufwand | -2.575 | -6.744 |
+| Personalaufwand | -3.684 | -4.657 |
+| Sonst. betr. Aufwendungen | -8.416 | -9.315 |
+| **EBITDA (bereinigt)** | **-10.519** | **-7.128** |
+| **EBITDA (reported)** | **20.477** | **-2.380** |
+| **Jahresergebnis** | **+15.321** | **-4.824** |
+
+*Das positive Jahresergebnis ist buchhalterisch durch die OrbiFarm-Forderung — kein Cashzufluss.*
+
+### Bilanz 31.12.2025 (Auszug)
+| Aktiva | Tsd. EUR | | Passiva | Tsd. EUR |
+|---|---|---|---|---|
+| OrbiFarm-Forderung (in Forderungen) | ~35.000 | | Eigenkapital | 26.117 |
+| Liquide Mittel | **24** | | Anleihe 2020/2030 | 9.589 |
+| Bilanzsumme | **61.703** | | Verbindl. L+L | 5.900 |
+
+### Insolvenzforderungen (aus Slide IMG_3269)
+| Gläubigergruppe | Betrag |
+|---|---|
+| Anleihe | 9,6 Mio. € |
+| Lieferanten | 6,0 Mio. € |
+| **Darlehen** (deine Gruppe) | **2,2 Mio. €** |
+| Sonstige | 1,3 Mio. € |
+| **Gesamt** | **19,1 Mio. €** |
 
 ---
 
@@ -110,35 +146,39 @@ SdK und du als Aktionär haben heute zu Recht kritisiert:
 | Datum | Ereignis | Relevanz |
 |---|---|---|
 | **18.11.2026** | Fortsetzung Gläubigerversammlung, AG Potsdam | 🔴 Kritisch — Entscheidung über Verfahrensverlauf |
-| **Ende 2026** | Holding-Kosten auf €85k/Monat gesenkt | Interner Meilenstein |
-| **Ende 2026** | Ausgründung Peace on Earth abgeschlossen | Strukturell |
+| **Ende 2026** | Holdingkosten auf €85k/Monat gesenkt | Interner Meilenstein |
+| **Ende 2026** | Ausgründung Peas on Earth abgeschlossen | Strukturell |
 | **Q1 2027 erw.** | Einreichung Insolvenzplan | Ohne Datum bisher |
-| **H1 2027** | Ziel: Aufhebung Insolvenzverfahren | Optimistisches Ziel |
+| **H1 2027** | Ziel: Aufhebung Insolvenzverfahren + neue Mililk-Investoren | Optimistisches Ziel |
+| **2027** | Entscheidung JV Nordafrika + Werk Deutschland (Mililk) | Expansionsziele |
 | **31.12.2028** | Fälligkeit Orbifarm-Kaufpreis (€30 Mio.) | Entscheidend für Gläubigerbefriedigung |
 
 ---
 
 ## Handlungsempfehlung für dich
 
-### Darlehen (~€45k)
-**Melde deine Forderung im Insolvenzverfahren an**, falls noch nicht geschehen. Forderungsanmeldungen müssen beim Sachwalter Prof. Dr. Martini (Büro Bürg) eingehen. Das Verfahren läuft beim Amtsgericht Potsdam. Als Anleihegläubiger oder Darlehensgeber bist du Insolvenzgläubiger und dem Verfahren zu folgen ist zwingend, um in die Befriedigung einbezogen zu werden.
+### Darlehen (~€45k) — Gruppe: Darlehensgläubiger (€2,2 Mio. gesamt)
+**Melde deine Forderung im Insolvenzverfahren an**, falls noch nicht geschehen:
+- Sachwalter: **Prof. Dr. Torsten Martini, GÖRG Rechtsanwälte**
+- Gericht: Amtsgericht Potsdam, Az. **650 IN 179/26**
 
-Die Aussichten für eine (Teil-)Rückzahlung sind **realistisch**, sofern:
-1. Orbifarm-Technologie monetarisiert wird (Bredack-Aussagen heute: positiv)
-2. Eigenverwaltung nicht gekippt wird (18.11. Gläubigerversammlung beobachten)
+Die Aussichten für Rückzahlung sind **realistisch**, sofern:
+1. OrbiFarm-Technologie monetarisiert wird (Bredacks Zusagen heute: positiv, Pfandrecht als Sicherheit)
+2. Eigenverwaltung nicht gekippt wird (18.11. beobachten)
+3. Insolvenzplan rechtzeitig eingereicht und bestätigt wird
 
 ### Aktien (~15.000 Stück)
 **Halten — kein Nachkauf, kein Panikverkauf.**
-- Aktien sind in der Insolvenz de facto wertlos bis das Verfahren abgeschlossen ist
-- Liquidität im Open Market minimal — Verkauf kaum möglich ohne erheblichen Spread-Verlust
-- Falls Insolvenzplan erfolgreich: Aktien könnten Wert gewinnen, aber nur wenn die gesamten Gläubiger (€19,1 Mio.) voll befriedigt wurden und noch Substanz übrig bleibt
-- **18. November ist der nächste Entscheidungspunkt** — beobachten, dann neu bewerten
+- In Insolvenz de facto wertlos bis Verfahrensabschluss
+- Falls Insolvenzplan erfolgreich und Orbifarm zahlt: Aktien könnten Wert gewinnen — aber erst nach vollständiger Befriedigung der €19,1 Mio. Gläubiger
+- **18. November ist der nächste Entscheidungspunkt**
 
 ### Was du ab jetzt beobachten solltest
-1. **Orbifarm-Meldungen** — Bredack hat heute angedeutet, in „nächsten Tagestunden/Wochen" weitreichende Erfolgsmeldungen zu machen. Das wäre der wichtigste positive Trigger.
+1. **Orbifarm-Meldungen** — Bredack hat heute angedeutet, in „nächsten Tagestunden/Wochen" Erfolgsmeldungen zu machen. Das wäre der wichtigste positive Trigger.
 2. **18.11. Gläubigerversammlung** — Outcome bestimmt Kurs des Insolvenzverfahrens
-3. **Insolvenzplan-Einreichung** — sobald bekannt, gibt es Klarheit über die geplante Befriedigung der Gläubiger
-4. **US-Produktion Chicago** — Jindilli-Beziehung ist repariert? Produktionsstart wann?
+3. **Insolvenzplan-Einreichung** — sobald bekannt, gibt es Klarheit über die geplante Befriedigung
+4. **US-Produktion Chicago** — Jindilli-Beziehung repariert? Produktionsstart wann?
+5. **Mililk-Investor** (2027-Ziel) — Wenn ein Investor einsteigt, stärkt das die Holding
 
 ---
 
@@ -146,13 +186,14 @@ Die Aussichten für eine (Teil-)Rückzahlung sind **realistisch**, sofern:
 
 | Dimension | Bewertung | Kommentar |
 |---|---|---|
-| Insolvenzverfahren | 🟡 Kontrolliert | Eigenverwaltung hält, aber fragil |
-| Orbifarm (Kern der Finanzierung) | 🟡 Vielversprechend | Bredack investiert, Verträge laufen — aber erst 2028 fällig |
-| Mililk-Technologie | 🟡 In Entwicklung | Neuer Blueprint gut, US-Qualitätsproblem schwer |
+| Insolvenzverfahren | 🟡 Kontrolliert | Eigenverwaltung hält, Finanzierung gesichert (Mililk-Anteile 1 Mio.) |
+| Orbifarm (Kern der Finanzierung) | 🟡 Vielversprechend | Pfandrecht vorhanden, Bredack investiert — aber erst 2028 fällig |
+| Mililk-Technologie | 🟡 In Entwicklung | JV Nordafrika + DE-Werk geplant, US-Qualitätsproblem schwer |
+| Liquidität der AG | 🔴 Kritisch | 24 Tsd. EUR am 31.12.2025 — Verfahren hängt an Vorauszahlungen |
 | Management | 🟡 Stabil, reduziert | Vogt allein, AR ohne Beschlussfähigkeit |
-| Dein Darlehen (€45k) | 🟡 Chancen realistisch | Als Insolvenzgläubiger strukturell besser gestellt |
-| Deine Aktien (15k) | 🔴 Hochspekulativ | Totalverlust möglich, aber auch Upside falls Plan klappt |
+| Dein Darlehen (€45k) | 🟡 Chancen realistisch | Darlehensgläubiger-Gruppe €2,2 Mio. — strukturell besser als Aktien |
+| Deine Aktien (15k) | 🔴 Hochspekulativ | Totalverlust möglich, Upside nur falls Plan komplett klappt |
 
 ---
 
-*Kein Anlageberatung. Erstellt auf Basis des HV-Transkripts vom 20.10.2026 (eigene Mitschnitte) sowie öffentlicher Quellen. Alle Angaben ohne Gewähr.*
+*Kein Anlageberatung. Erstellt auf Basis des HV-Transkripts (20.10.2026), 20 Slide-Fotos aus der HV-Präsentation sowie öffentlicher Quellen. Alle Angaben ohne Gewähr.*
